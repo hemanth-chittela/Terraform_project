@@ -4,7 +4,7 @@ resource "null_resource" "connect_commands" {
     type        = "ssh"
     user        = "ubuntu"  # Replace with the appropriate username for your EC2 instance
     private_key = file("./Sample.pem") # Replace with the path to your private key
-    host        = self.public_ip
+    host        = aws_instance.example.public_ip
   }
   
   provisioner "remote-exec" {
